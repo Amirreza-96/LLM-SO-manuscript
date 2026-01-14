@@ -1,0 +1,56 @@
+# Code and Reproducibility Guide
+
+This guide describes how to reproduce the experimental results reported in  
+**“Large Language Model–Based Automatic Formulation for Stochastic Optimization Models.”**
+
+## 1. API Setup
+To execute the experiments, you will need an OpenAI API key.
+
+1. Obtain a valid API key from **OpenAI**.
+2. In `implementation.ipynb`, import the required modules and set the environment variable:
+   ```python
+   import os, run_exp
+   os.environ["OPENAI_API_KEY"] = "your_api_key_here"
+2. Running Experiments
+
+All experiments are executed through run_exp.py. 
+Example command:
+
+!python run_exp.py --dataset ComplexOR --problem "biweekly_fleet_size_planning_2" --algorithm cot_s
+
+The only dataset used is ComplexOR.
+
+Problem names can be found in the dataset/ folder.
+
+Algorithm names are listed in the baseline/ folder.
+Running the above command reproduces the numerical results shown in the paper.
+
+3. Results and Datasets
+
+All numerical results appearing in the paper are available and visualized in
+implementation.ipynb.
+
+Datasets for replication and reproducibility are provided in the following folders:
+
+exp_results_replication/
+
+exp_results_replication2/
+
+exp_results_1/
+
+These contain all experiment logs, output files, and aggregated metrics used in the manuscript.
+
+4. Acknowledgment of Reused Code
+
+We gratefully acknowledge Xiao et al. (2024) for publicly releasing their implementation of Chain-of-Experts, from which we adapted several utility files (utils.py, result.py, and run_exp.py).
+The original repository is available at
+https://github.com/xzymustbexzy/Chain-of-Experts
+.
+All reused components are cited in both the manuscript and this guide in full compliance with the original license.
+
+References:
+
+Ziyang Xiao, Dongxiang Zhang, Yangjun Wu, Lilin Xu, Yuan Jessica Wang, Xiongwei Han, Xiaojin Fu, Tao Zhong, Jia Zeng, Mingli Song, and Gang Chen.
+Chain-of-Experts: When LLMs Meet Complex Operations Research Problems.
+The Twelfth International Conference on Learning Representations (ICLR 2024).
+OpenReview
